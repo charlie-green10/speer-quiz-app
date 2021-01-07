@@ -1,3 +1,4 @@
+// Authorization helper functions
 const authorizer = (req, res, callback) => {
     if (req.isAuthenticated()) {
         return callback()

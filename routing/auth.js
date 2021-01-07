@@ -1,6 +1,8 @@
+// External npm modules 
 const express = require('express')
 const passport = require('passport')
 
+// Define router
 const router = express.Router()
 
 // GET '/auth/google'
