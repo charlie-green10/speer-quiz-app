@@ -1,0 +1,33 @@
+<div class="card">
+    <div class="card-content">
+        <h4>Results</h4>
+        {{#each info}}
+        <h5>{{formatQuestion questionNum}}</h5>
+        <p>{{question}}</p>
+        {{#if correct}}
+        <h6>Correct</h6>
+        <p>Correct Answer: {{correctAnswer}}</p>
+        <p>Your Answer: {{yourAnswer}}</p>
+        {{else}}
+        <h6>Incorrect</h6>
+        <p>Correct Answer: {{correctAnswer}}</p>
+        <p>Your Answer: {{yourAnswer}}</p>
+        {{/if}}
+        <div class="divider"></div>
+        {{/each}}
+        <div class="row">
+            <div class="col s3">
+                <h5>Score: {{score}}/{{total}}</h5>
+            </div>
+            <div class="col s5">
+                <h5>Total Public Completions: {{completions}}</h5>
+            </div>
+            <div class="col s4">
+                <h5>Public Average: {{average}}/{{total}}</h5>
+            </div>
+        </div>
+        <a href="/explore/{{quizId}}" class="btn orange">Take Quiz Again</a>
+            <a href="/dash" class="btn green">Go to Dashboard</a>
+            <a href="/explore" class="btn blue">Go to Explore</a>
+    </div>
+</div>

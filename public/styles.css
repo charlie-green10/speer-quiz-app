@@ -1,0 +1,64 @@
+.login {
+    width: 400px;
+    margin-top: 75px;
+    text-align: center;
+}
+
+p {
+    margin: 10px 0 !important;
+}
+
+.drop-item {
+    color: orange !important;
+}
+
+.brand-logo {
+    margin-left: 20px;
+}
+
+.grey-date {
+    size: 7.5px !important;
+    color: grey;
+}
+
+.dash {
+    margin-top: 25px;
+}
+
+input[type=range] {
+    margin-top: 30px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    background-color: orange;
+  }
+  input[type=range]::-moz-range-thumb {
+    background-color: orange;
+  }
+  input[type=range]::-ms-thumb {
+    background-color: orange;
+  }
+  input[type=range] + .thumb {
+    background-color: orange;
+  }
+  input[type=range] + .thumb.active .value {
+    color: white; 
+    size: 10px;
+  }
+
+.invfield {
+    color: red;
+}
+.card-wide {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.create-quiz {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.td-button {
+    width: 15%;
+}

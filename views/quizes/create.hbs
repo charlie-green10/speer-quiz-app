@@ -1,0 +1,38 @@
+<div class="card dash">
+    <div class="card-content">
+        <h4>Create Quiz</h4>
+        <div class="row">
+            <form action="/quizes" method="POST" class="col s12">
+                <div class="row">
+                    <div class="input-field" id="title">
+                        <input type="text" id="title" name="title">
+                        <label for="title">Title</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <select id="status" name="status">
+                            <option value="public" selected>Public</option>
+                            <option value="private">Private</option>
+                        </select>
+                        <label for="status">Status</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field">
+                        <h6>Number of Questions</h6>
+                            <div class="range-field">
+                                <input type="range" id="numQs" name="numQs" min="1" max="100"/>
+                            </div>  
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+                <div class="row">
+                    <input type="submit" value="Add Questions" class="btn orange">
+                    <a href="/dash" class="btn red darken-1">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

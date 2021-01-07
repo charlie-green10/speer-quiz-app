@@ -1,0 +1,33 @@
+<div class="card dash">
+    <div class="card-content">
+        <h3>Public Quizes</h3>
+        {{#if quizzes}}
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Date</th>
+                    <th>Average Score</th>
+                    <th>Number of Completions</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each quizzes}}
+                <tr>
+                    <td>{{title}}</td>
+                    <td>{{author.firstName}} {{author.lastName}}</td>
+                    <td>{{formatDate createdAt 'MMMM do, YYYY'}}</td>
+                    <td>{{average}}/{{questions.length}}</td>
+                    <td>{{completions}}</td>
+                    <td><a href="/explore/{{_id}}" class="btn orange">Take Quiz</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        {{else}}
+        <h6>There are currently no public quizzes! You can change that by making your own :)</h6>
+        {{/if}}
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="card dash">
+    <div class="card-content">
+        <h4>Add Questions</h4>
+        <div class="row">
+            <form action={{action}} method="POST" class="col s12">
+                {{#each nums}}
+                    <div class="row">
+                    <div class="input-field">
+                        <h6>Question {{num}}</h6>
+                        <textarea id="question{{num}}" name="question{{num}}"></textarea>
+                        <h6>Answer {{num}}</h6>
+                        <textarea id="answer{{num}}" name="answer{{num}}"></textarea>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                {{/each}}
+                <p class='invfield'>{{invField}}</p>
+                <div class="row">
+                    <input type="submit" value="Save" class="btn green">
+                    <a href="/quizes/cancel" class="btn red">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
