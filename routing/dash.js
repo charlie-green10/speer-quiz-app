@@ -8,12 +8,12 @@ const router = express.Router()
 // GET '/dash
 router.get('/', authorizer, async (req, res) => {
     try {
-        const quizes = await Quiz.find({ author: req.user.id }).sort({ createdAt: 'desc'}).lean()
+        const quizzes = await Quiz.find({ author: req.user.id }).sort({ createdAt: 'desc'}).lean()
         const results = await Results.find({participantId: req.user.id}).populate('participantId').populate('quizId').sort({ timeOfCompletion: 'desc'}).lean()
         res.render('dash', {
             name: req.user.firstName + " " + req.user.lastName,
             date: req.user.createdAt,
-            quizes,
+            quizzes,
             results
         })
     } catch (err) {
@@ -24,14 +24,13 @@ router.get('/', authorizer, async (req, res) => {
 router.get('/result/:id', authorizer, async (req, res) => {
     try {
         const result = await Results.findOne({ _id: req.params.id}).populate('participantId').populate('quizId').lean()
-        res.render('quizes/results', {
+        res.render('quizzes/results', {
             info: result.answers,
             score: result.score,
             total: result.answers.length,
             quizId: result.quizId._id,
             average: result.quizId.average,
-            completions: result.quizId.completions,
-            viewFromDash: true
+            completions: result.quizId.completions
         })
     } catch (err) {
         console.error(err)
@@ -42,7 +41,7 @@ router.get('/result/:id', authorizer, async (req, res) => {
 router.get('/:id', authorizer, async (req, res) => {
     try {
         const quiz = await Quiz.findOne({ _id: req.params.id}).lean()
-        res.render('quizes/takeQuiz', {
+        res.render('quizzes/takeQuiz', {
             layout: 'add',
             title: quiz.title,
             questions: quiz.questions,

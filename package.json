@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node index",
-    "dev": "cross-env NODE_ENV=development nodemon index"
+    "devenv": "cross-env NODE_ENV=development nodemon index"
   },
   "author": "Charles Green",
   "license": "MIT",

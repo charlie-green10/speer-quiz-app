@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', require('./routing/index'))
 app.use('/dash', require('./routing/dash'))
 app.use('/auth', require('./routing/auth'))
-app.use('/quizes', require('./routing/quizes'))
+app.use('/quizzes', require('./routing/quizzes'))
 app.use('/explore', require('./routing/explore'))
 
 

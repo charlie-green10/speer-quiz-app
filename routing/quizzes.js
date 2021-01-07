@@ -5,24 +5,24 @@ const url = require('url');
 const express = require('express')
 const router = express.Router()
 
-// GET '/quizes/create'
+// GET '/quizzes/create'
 router.get('/create', authorizer, (req, res) => {
-    res.render('quizes/create')
+    res.render('quizzes/create')
 })
 
-// GET '/quizes/cancel'
+// GET '/quizzes/cancel'
 router.get('/cancel', authorizer, (req, res) => {
     res.redirect('create')
 })
 
-// GET '/quizes/add'
+// GET '/quizzes/add'
 router.get('/add', authorizer, (req, res) => {
     const numQs = req.query.numQs
     const numArr = []
     for (i = 0; i < numQs; i++) { 
         numArr[i] = {num: i + 1}
       }
-    res.render('quizes/add', {
+    res.render('quizzes/add', {
         layout: 'add',
         nums: numArr,
         action: req.query.forwardQuery,
@@ -30,11 +30,11 @@ router.get('/add', authorizer, (req, res) => {
     })
 })
 
-// GET '/explore/:id'
+// GET '/quizzes/:id'
 router.get('/:id', authorizer, async (req, res) => {
     try {
         const quiz = await Quiz.findOne({ _id: req.params.id}).lean()
-        res.render('quizes/takeQuiz', {
+        res.render('quizzes/takeQuiz', {
             layout: 'add',
             title: quiz.title,
             questions: quiz.questions
@@ -46,12 +46,12 @@ router.get('/:id', authorizer, async (req, res) => {
 })
 
 
-// POST '/quizes'
+// POST '/quizzes'
 router.post('/', authorizer, async (req, res) => {
     try {
         req.body.author = req.user.id
         res.redirect(url.format({
-            pathname:"/quizes/add",
+            pathname:"/quizzes/add",
             query: {
                "title": req.body.title,
                "status": req.body.status,
@@ -79,7 +79,7 @@ const formatQuestions = (jsonObj) => {
     return arr
 }
 
-// POST '/quizes/add'
+// POST '/quizzes/add'
 router.post('/add', authorizer, async (req, res) => {
     try {
         const quizData = req.query
@@ -92,7 +92,7 @@ router.post('/add', authorizer, async (req, res) => {
     } catch (err) {
         console.error(err)
         res.redirect(url.format({
-            pathname:"/quizes/add",
+            pathname:"/quizzes/add",
             query: {
                "title": req.query.title,
                "status": req.query.status,

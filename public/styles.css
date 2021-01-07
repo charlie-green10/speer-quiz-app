@@ -49,10 +49,6 @@ input[type=range]::-webkit-slider-thumb {
 .invfield {
     color: red;
 }
-.card-wide {
-    margin-top: 30px;
-    width: 100%;
-}
 
 .create-quiz {
     margin-top: 15px;
@@ -61,4 +57,12 @@ input[type=range]::-webkit-slider-thumb {
 
 .td-button {
     width: 15%;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
 }

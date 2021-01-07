@@ -5,13 +5,13 @@
         <h5>{{formatQuestion questionNum}}</h5>
         <p>{{question}}</p>
         {{#if correct}}
-        <h6>Correct</h6>
-        <p>Correct Answer: {{correctAnswer}}</p>
-        <p>Your Answer: {{yourAnswer}}</p>
+        <h6 class="correct">Correct <i class="fas fa-check"></i></h6>
+        <p class="correct">Correct Answer: {{correctAnswer}}</p>
+        <p class="correct">Your Answer: {{yourAnswer}}</p>
         {{else}}
-        <h6>Incorrect</h6>
-        <p>Correct Answer: {{correctAnswer}}</p>
-        <p>Your Answer: {{yourAnswer}}</p>
+        <h6 class="incorrect">Incorrect <i class="fas fa-times"></i></h6>
+        <p class="correct">Correct Answer: {{correctAnswer}}</p>
+        <p class="incorrect">Your Answer: {{yourAnswer}}</p>
         {{/if}}
         <div class="divider"></div>
         {{/each}}
@@ -27,7 +27,7 @@
             </div>
         </div>
         <a href="/explore/{{quizId}}" class="btn orange">Take Quiz Again</a>
-            <a href="/dash" class="btn green">Go to Dashboard</a>
-            <a href="/explore" class="btn blue">Go to Explore</a>
+        <a href="/dash" class="btn green">Go to Dashboard</a>
+        <a href="/explore" class="btn blue">Go to Explore</a>
     </div>
 </div>

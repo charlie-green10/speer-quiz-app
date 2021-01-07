@@ -9,7 +9,7 @@ const router = express.Router()
 router.get('/', authorizer, async (req, res) => {
     try {
         const publicQuizzes = await Quiz.find({ status: 'public' }).populate('author').sort({ createdAt: 'desc'}).lean()
-        res.render('quizes/explore', {
+        res.render('quizzes/explore', {
         quizzes: publicQuizzes
         })   
     } catch (err) {
@@ -18,7 +18,7 @@ router.get('/', authorizer, async (req, res) => {
     
 })
 
-// GET '/quizes/leaveQuiz'
+// GET '/explore/leaveQuiz'
 router.get('/leaveQuiz', authorizer, (req, res) => {
     res.redirect('/dash')
 })
@@ -27,7 +27,7 @@ router.get('/leaveQuiz', authorizer, (req, res) => {
 router.get('/:id', authorizer, async (req, res) => {
     try {
         const quiz = await Quiz.findOne({ _id: req.params.id}).lean()
-        res.render('quizes/takeQuiz', {
+        res.render('quizzes/takeQuiz', {
             layout: 'add',
             title: quiz.title,
             questions: quiz.questions,
@@ -85,17 +85,15 @@ router.post('/results', authorizer, async (req, res) => {
             timeOfCompletion: Date.now()
         }
         await Results.create(saveResult)
-        res.render('quizes/results', {
+        res.render('quizzes/results', {
             info: results.info,
             score: results.score,
             total: results.info.length,
             quizId: quiz._id,
             average: quiz.average,
-            completions: quiz.completions,
-            viewFromDash: false
+            completions: quiz.completions
 
         })
-        console.log(results)
     } catch (err) {
         console.error(err)
     }
