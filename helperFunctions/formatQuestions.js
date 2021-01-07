@@ -13,3 +13,5 @@ const formatQuestions = (jsonObj) => {
     }
     return arr
 }
+
+module.exports = formatQuestions

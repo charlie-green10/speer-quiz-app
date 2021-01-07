@@ -65,7 +65,7 @@ router.post('/', authorizer, async (req, res) => {
 
                 // Forward query defines the query which get passed when a post 
                 // request is made from the add page
-                "forwardQuery": encodeURI("/quizes/add?title=" + req.body.title + "&status=" + req.body.status + "&numQs=" + req.body.numQs + "&author=" + req.body.author)
+                "forwardQuery": encodeURI("/quizzes/add?title=" + req.body.title + "&status=" + req.body.status + "&numQs=" + req.body.numQs + "&author=" + req.body.author)
             }
         }));
     } catch (err) {
@@ -87,14 +87,14 @@ router.post('/add', authorizer, async (req, res) => {
         console.error(err)
         res.redirect(url.format({
             pathname: "/quizzes/add",
-            
+
             // Query passed to render necessary elements to the add page, same as above
             query: {
                 "title": req.query.title,
                 "status": req.query.status,
                 "numQs": req.query.numQs,
                 "author": req.query.author,
-                "forwardQuery": encodeURI("/quizes/add?title=" + req.query.title + "&status=" + req.query.status + "&numQs=" + req.query.numQs + "&author=" + req.query.author),
+                "forwardQuery": encodeURI("/quizzes/add?title=" + req.query.title + "&status=" + req.query.status + "&numQs=" + req.query.numQs + "&author=" + req.query.author),
                 "invField": "All fields must contain non-empty values"
             }
         }));
